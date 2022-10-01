@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  landing_page:
+    image: wordpress:6.0.2-apache
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=${DB_USER}
+      - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+      - WORDPRESS_DB_NAME=${DB_NAME}
+    volumes:
+      - ./wordpress:/var/www/html
+    ports:
+      - 80:80
+
+  db:
+    image: mysql:5.7
+    hostname: db
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      # MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./dump:/root/dump
