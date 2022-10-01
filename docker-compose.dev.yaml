@@ -23,7 +23,5 @@ services:
       MYSQL_PASSWORD: landing_page
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - db:/var/lib/mysql
-      - ./db/dump.sql:/root/dump.sql
-volumes:
-  db:
+      - ./db:/var/lib/mysql
+      - ./dump:/root/dump

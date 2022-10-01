@@ -226,10 +226,19 @@ if ( ! class_exists('WPPB_Frontend')){
 		}
 
 
+		function translate(&$obj) {
+			foreach($obj as $key => $value) {
+				if (is_string($value)) {
+					if (array_key_exists($value, ))
+				} else if (is_object($value)) {
+					translate($value)
+				}
+			}
+		}
+
 		/**
 		 * Filter the_content with WP PageBuilder Content
 		 */
-
 		function filter_content_with_pagebuilder($content){
 			$page_id = get_the_ID();
 			$last_editor = get_post_meta($page_id, '_wppb_current_post_editor', true);
