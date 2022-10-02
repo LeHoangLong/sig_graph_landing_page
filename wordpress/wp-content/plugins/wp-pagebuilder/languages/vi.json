@@ -1,3 +1,23 @@
 {
-    "Know More": "Tìm hiểu thêm"
+    "Know More": "Tìm hiểu thêm",
+    "Toward a fraud-free world": "Hướng đến thế giới không hàng giả",
+    "Tired of fake products? Are you losing customers because of cheaper knock-offs?": "Chán ghét hàng giả? Bạn có đang mất doanh thu vì hàng nhái rẻ tiền?",
+    "Here's how SigGraph can help": "Dưới đây là cách SigGraph có thể giúp bạn",
+    "Validate product origin": "Xác thực nguồn gốc sản phẩm",
+    "Using digital signature, the end customer can scan a QR code on a product and verify that it is from you.": "Sử dụng chữ kí điện tử, người tiêu dùng có thể  quét mã QR trên sản phẩm và xác thực rằng sản phẩm đến từ bạn.",
+    "Prevent mixing unqualified products with qualified ones": "Ngăn việc trộn lẫn giữa hàng giả và hàng thật",
+    "Product's quantity is conserved across multiple participants, thus preventing any malicious product mixing.": "Số lượng sản phẩm được ghi nhận trên blockchain không đổi trong suốt vòng đời của sản phẩm, vì thế ngăn chặn được hành vi lừa đảo.",
+    "Control what product's information your customer can see": "Kiểm soát những thông tin nào về sản phẩm mà khách hàng của bạn có thể thấy được",
+    "Unlike conventional blockchain where data is completely transparent, participants can share only part of the data that their customers need and hide confidential one, thus avoiding losing any competitive advantage.": "Khác với blockchain khác, thông tin về sản phẩm không cần phải công khai với tất cả mọi người. Thay vào đó, bạn hoàn toàn nắm trong tay quyền kiểm soát khách hàng của bạn có thể thấy được thông tin gì, nhờ đó bảo vệ được bí mật kinh doanh",
+    "Free and open source": "Miễn phí và mã nguồn mở",
+    "SigGraph is strongest when everyone uses it. Thus, it is completely free and open-source to encourage adoption. There will also be no transaction fee like a traditional blockchain.": "SigGraph mạnh nhất khi tất cả đều sử dụng nó. Vì vậy nó hoàn toàn miễn phí và mã nguồn mở để khuyến khích mọi người cùng sử dụng. Hơn nữa, khác với blockchain truyền thống, SigGraph cũng sẽ không có bất kì phí giao dịch nào.",
+    "Interested?": "Những điều này có đủ để bạn hào hứng chưa?",
+    "Leave your contact here to get more updates on our project": "Để lại thông tin của bạn dưới đây để được cập nhật thêm về dự án của chúng tôi nhé.",
+    "Your name": "Tên",
+    "Your email": "Email",
+    "Subject": "Tiêu đề",
+    "Your message (optional)": "Lời nhắn (không bắt buộc)",
+    "Submit": "Gửi",
+    "For more information, please visit": "Để biết thêm chi tiết, vui lòng truy cập",
+    "Home": "Trang chủ"
 }

@@ -12,11 +12,13 @@ function console_log($message) {
 if ( ! class_exists('WPPB_Frontend')){
 
 	class WPPB_Frontend{
+		private $_translator;
 
 		/**
 		 * WPPB_Frontend constructor.
 		 */
 		public function __construct() {
+			$this->$_translator = new WPPB_Translator;
 			add_action('wp_enqueue_scripts', array($this, 'enqueue_frontend_scripts'));
 
 			//enqueue scripts
@@ -43,6 +45,16 @@ if ( ! class_exists('WPPB_Frontend')){
 			if (wppb_helper()->can_edit_editor()){
 				add_action('admin_bar_menu', array($this, 'add_toolbar_items'), 100);
 			}
+
+			add_filter('wp_get_nav_menu_items', array($this, 'translate_menu'));
+		}
+
+		function translate_menu(&$args) {
+			$this->$_translator = new WPPB_Translator;
+			foreach ($args as $index => &$value) {
+				$this->$_translator->translate($value->title);
+			}
+			return $args;
 		}
 
 		public function enqueue_frontend_scripts(){
@@ -248,13 +260,13 @@ if ( ! class_exists('WPPB_Frontend')){
 				$page_builder_content = get_post_meta($page_id, '_wppb_content', true);
 				if ( ! empty($page_builder_content)){
 					$settings = json_decode($page_builder_content, true);
-					$translator = new WPPB_Translator;
-					$translator->translate($settings);
 					include WPPB_DIR_PATH.'classes/Layout_Generator.php';
 					ob_start();
 					$generate = new WPPB_Layout_Generator;
 					echo $generate->generate($settings);
 					$content = ob_get_clean();
+					$translator = new WPPB_Translator;
+					$translator->translate($content);
 
 					return $content;
 				}

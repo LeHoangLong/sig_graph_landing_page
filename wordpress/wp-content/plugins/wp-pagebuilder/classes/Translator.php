@@ -21,7 +21,7 @@ if ( ! class_exists('WPPB_Translator')){
         }
       }
 
-      function translate(&$obj) {
+      function translate(&$content) {
         $languages = explode(";", $_SERVER["HTTP_ACCEPT_LANGUAGE"])[0];
         $language = explode(",", $languages);
         $selected_language = "";
@@ -32,31 +32,18 @@ if ( ! class_exists('WPPB_Translator')){
           }
         }
 
-        if (array_key_exists($selected_language, $this->$_dictionary_by_language)) {
-          $dictionary = json_decode($this->$_dictionary_by_language[$selected_language], true);
-          if (is_array($dictionary)) {
-            $this->_translate($obj, $dictionary);
-            $this->_translate($obj, $dictionary);
-          }
-        }
-
-      }
-
-      private function _translate(&$obj, $dictionary) {
-        foreach($obj as $key => &$value) {
-          if (is_string($value)) {
-            if (array_key_exists($value, $dictionary)) {
-              console_log("translating");
-              console_log($obj[$key]);
-              
-              $obj[$key] = $dictionary[$value];
-              console_log($obj[$key]);
+        if ($selected_language !== "") {
+          if (array_key_exists($selected_language, $this->$_dictionary_by_language)) {
+            $dictionary = json_decode($this->$_dictionary_by_language[$selected_language], true);
+            if (is_array($dictionary)) {
+              foreach($dictionary as $key => $value) {
+                $content = str_replace(esc_html($key), esc_html($value), $content);
+                $content = str_replace($key, esc_html($value), $content);
+              }
             }
-          } else if (is_object($value) || is_array($value)) {
-            $this->_translate($value, $dictionary);
           }
         }
-        
       }
     }
 }
+
