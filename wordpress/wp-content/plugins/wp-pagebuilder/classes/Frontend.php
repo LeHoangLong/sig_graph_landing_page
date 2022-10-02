@@ -3,6 +3,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+function console_log($message) {
+    $STDERR = fopen("php://stderr", "w");
+              fwrite($STDERR, $message."\n");
+              fclose($STDERR);
+}
+
 if ( ! class_exists('WPPB_Frontend')){
 
 	class WPPB_Frontend{
@@ -226,16 +232,6 @@ if ( ! class_exists('WPPB_Frontend')){
 		}
 
 
-		function translate(&$obj) {
-			foreach($obj as $key => $value) {
-				if (is_string($value)) {
-					if (array_key_exists($value, ))
-				} else if (is_object($value)) {
-					translate($value)
-				}
-			}
-		}
-
 		/**
 		 * Filter the_content with WP PageBuilder Content
 		 */
@@ -252,6 +248,8 @@ if ( ! class_exists('WPPB_Frontend')){
 				$page_builder_content = get_post_meta($page_id, '_wppb_content', true);
 				if ( ! empty($page_builder_content)){
 					$settings = json_decode($page_builder_content, true);
+					$translator = new WPPB_Translator;
+					$translator->translate($settings);
 					include WPPB_DIR_PATH.'classes/Layout_Generator.php';
 					ob_start();
 					$generate = new WPPB_Layout_Generator;

@@ -16,6 +16,7 @@ class Wppb_autoloader {
 		'WPPB_Frontend' 		=> 'classes/Frontend.php',
 		'WPPB_Theme_Manager'	=> 'classes/Theme_Manager.php',
 		'Compatibility'			=> 'classes/Compatibility.php',
+		'WPPB_Translator' 		=> 'classes/Translator.php',
 		'WPPB_Base_Data'		=> 'classes/Base_Data.php', //No need intensiet, it's contain initial data
 	);
 
