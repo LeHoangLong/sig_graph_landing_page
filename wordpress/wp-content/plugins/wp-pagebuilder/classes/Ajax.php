@@ -175,6 +175,7 @@ if ( ! class_exists('WPPB_Ajax')){
 			
 			$wppb_page_css = $wppb_page_css . $this->get_content_common_css();
 			$wppb_page_css = $this->move_import_url_to_top_css($wppb_page_css);
+			$wppb_page_css = preg_replace("/http:\/\/localhost\/?/", "", $wppb_page_css);
 
 			update_post_meta($page_id, '_wppb_content', $page_builder_data);
 			update_post_meta($page_id, '_wppb_page_css', $wppb_page_css);

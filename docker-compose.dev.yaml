@@ -22,6 +22,8 @@ services:
       MYSQL_USER: landing_page
       MYSQL_PASSWORD: landing_page
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      URL: http://localhost
     volumes:
       - ./db:/var/lib/mysql
       - ./dump:/root/dump
+      - ./script:/root/script
