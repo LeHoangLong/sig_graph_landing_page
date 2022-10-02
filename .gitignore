@@ -3,3 +3,4 @@ db/*
 docker-compose.yaml
 dump/*
 !dump/.keep
+*.swp

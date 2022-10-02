@@ -23,6 +23,8 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       # MYSQL_RANDOM_ROOT_PASSWORD: '1'
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      URL: http://128.199.215.191
     volumes:
       - ./db:/var/lib/mysql
       - ./dump:/root/dump
+      - ./script:/root/script
